@@ -1,0 +1,41 @@
+<article>
+    <header>
+        <h2>{{post.title|title}}</h2>
+        <p>
+            written on
+            <time datetime="{{post.pub_date|date:"Y-m-d" }}">
+                {{post.pub_date|date:"l, F j, Y"}}
+            </time>
+        </p>
+    </header>
+    {{post.text|linebreaks}}
+    {% if post.startups.all or post.tags.all %}
+    <footer>
+        {% if post.startups.all %}
+        <section>
+            <h3>Startup {{post.startups.count|pluralize }}</h3>
+            <ul>
+                {% for startups in post.startups.all %}
+                <li><a href="{{startup.get_absolute_url}}">
+                    {{srartup.name}}
+                    </a></li>
+                    {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+        
+        {% if post.tag.all %}
+        <section>
+            <h3>Tag{{post.tags.count|pluralize}}</h3>
+            <ul>
+                {% for tag in post.tags.all %}
+                <li><a href="{{post.get_absolute_url}}">
+                    {{tag.name|title}}
+                    </a></li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+    </footer>
+    {% endif %}
+</article>

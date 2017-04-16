@@ -1,0 +1,23 @@
+{% for post in post_list %}
+<article>
+    <header>
+        <h2>
+            <a href="{{post.get_absolute_url}}">
+                {{post.title|title}}</a>
+        </h2>
+        <p>
+            written on:
+            <time datetime="{{post.pub_date|date:'Y-m-d'}}">
+                {{post.pub_date|date:"l, F j, Y" }}
+            </time>
+        </p>
+    </header>
+    <p>{{post.text|truncatewords:20}}</p>
+    <p>
+        <a href="{{post.get_absolute_url}}">
+            read more &helllip;</a>
+    </p>
+</article>
+{% empty %}
+<p><em>no blog posts available</em></p>
+{% endfor %}
