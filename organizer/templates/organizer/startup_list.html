@@ -1,0 +1,19 @@
+{%	extends	parent_template|default:"organizer/base_organizer.html"	%}
+
+{%	block title	%} 
+{{ block.super }} - startups
+{%	endblock %}
+
+{% block content %}
+<h2> Startup Links </h2>
+<ul>
+    {% for startup in startup_list %}
+    <li>
+        <a href="{{startup.get_absolute_url}}">
+            {{srartup.name}}</a>
+    </li>
+    {% empty %}
+    <li><em> no startups available </em></li>
+    {% endfor %}
+</ul>
+{% endblock %}

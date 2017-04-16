@@ -1,0 +1,23 @@
+	{% extends parent_template|default:"base.html" %}
+
+{% block title %}
+{{block.super}} - Tag List
+{% endblock %}
+
+{% block content %}
+<h2>Tag List </h2>
+<ul>
+{% for tag in tag_list %}
+<li>
+<a href="{{tag.get_absolute_url}}">
+{{ tag.name|title }}</a>
+</li>
+{% empty %}
+<p><em> there are curently no tag available </em></p>
+{% endfor %}
+</ul>
+{% endblock %}
+
+
+
+
