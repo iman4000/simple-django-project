@@ -5,6 +5,10 @@
             <a href="{{post.get_absolute_url}}">
                 {{post.title|title}}</a>
         </h2>
+        <div>
+            <a href="{% url 'blog_post_create' %}">
+                Write New Post </a>
+        </div>
         <p>
             written on:
             <time datetime="{{post.pub_date|date:'Y-m-d'}}">
