@@ -14,7 +14,7 @@ class Tag (models.Model):
     
     class Meta:
         ordering = ['name']
-#######################################################################################################################
+#####################################################################################################################
 class Startup (models.Model):
     name = models.CharField(max_length=31, db_index = True)
     slug = models.SlugField(max_length=31, db_index=True, help_text ='A label for URL config')
@@ -32,7 +32,7 @@ class Startup (models.Model):
     class Meta:
         ordering = ['name']
         get_latest_by = 'founded_date'
-#######################################################################################################################
+#####################################################################################################################
 class NewsLink (models.Model):
     name = models.CharField(max_length=31)
     pub_date = models.DateField('date published')
